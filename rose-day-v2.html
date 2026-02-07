@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌹 Rose Day 2025</title>
+    
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════
+    ROSE DAY WEBSITE - FRESH EDITORIAL DESIGN
+    ═══════════════════════════════════════════════════════════════════
+    
+    CUSTOMIZATION:
+    1. Line 664: Add your email (already set: ajaychavan_in@outlook.com)
+    2. Line 665: Add your Web3Forms key (already set)
+    3. Line 194: Image file name (currently: roseday1.jpeg)
+    4. Line 199: Customize your message
+    
+    GITHUB DEPLOYMENT:
+    1. Create repo: "rose-day-2025"
+    2. Upload as "index.html" + your photo "roseday1.jpeg"
+    3. Settings > Pages > Enable
+    4. Done! 🌹
+    ═══════════════════════════════════════════════════════════════════
+    -->
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700;900&family=Lora:wght@400;600&display=swap');
+        
+        :root {
+            --rose-deep: #8B1538;
+            --rose-bright: #E63946;
+            --cream: #FAF3E0;
+            --dark: #1A1A1A;
+            --gold: #C9A961;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           HERO SECTION
+        ═══════════════════════════════════════════════════════════════ */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--rose-deep), var(--rose-bright));
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out 0.3s backwards;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           ROSE SELECTION SECTION
+        ═══════════════════════════════════════════════════════════════ */
+        .selection-section {
+            background: var(--cream);
+        }
+        
+        .content-wrapper {
+            max-width: 1100px;
+            width: 100%;
+        }
+        
+        .section-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--rose-deep);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .roses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .rose-card {
+            background: white;
+            border: 3px solid transparent;
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .rose-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(139, 21, 56, 0.15);
+            border-color: var(--rose-bright);
+        }
+        
+        .rose-card.selected {
+            background: linear-gradient(135deg, var(--rose-deep), var(--rose-bright));
+            border-color: var(--gold);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(139, 21, 56, 0.3);
+        }
+        
+        .rose-card.selected .rose-emoji,
+        .rose-card.selected .rose-name,
+        .rose-card.selected .rose-meaning {
+            color: white;
+        }
+        
+        .rose-emoji {
+            font-size: 4.5rem;
+            display: block;
+            margin-bottom: 20px;
+            transition: transform 0.4s;
+        }
+        
+        .rose-card.selected .rose-emoji {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .rose-name {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rose-deep);
+            margin-bottom: 10px;
+        }
+        
+        .rose-meaning {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .submit-btn {
+            display: block;
+            margin: 0 auto;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, var(--rose-deep), var(--rose-bright));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(139, 21, 56, 0.3);
+        }
+        
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(139, 21, 56, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           REVEAL SECTION (Your Photo)
+        ═══════════════════════════════════════════════════════════════ */
+        .reveal-section {
+            background: white;
+            display: none;
+            opacity: 0;
+        }
+        
+        .reveal-section.active {
+            display: flex;
+            animation: revealFade 1s ease-out forwards;
+        }
+        
+        @keyframes revealFade {
+            to { opacity: 1; }
+        }
+        
+        .reveal-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .reveal-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            color: var(--rose-deep);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+        
+        .rose-display {
+            font-size: 6rem;
+            margin: 30px 0;
+            animation: roseZoom 0.8s ease-out 0.5s backwards;
+        }
+        
+        @keyframes roseZoom {
+            from {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+        
+        .reveal-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 20px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.7s backwards;
+        }
+        
+        .reveal-message {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin: 40px 0;
+            animation: fadeInUp 0.8s ease-out 0.9s backwards;
+        }
+        
+        .rose-meaning-text {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.8rem;
+            color: var(--rose-bright);
+            font-weight: 700;
+            margin: 30px 0;
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           FLOATING PETALS
+        ═══════════════════════════════════════════════════════════════ */
+        .petal {
+            position: fixed;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 1000;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           MOBILE RESPONSIVE
+        ═══════════════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .roses-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .rose-card {
+                padding: 30px 15px;
+            }
+            
+            .rose-emoji {
+                font-size: 3.5rem;
+            }
+            
+            .submit-btn {
+                padding: 18px 45px;
+                font-size: 1.3rem;
+            }
+            
+            .reveal-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section hero" id="hero">
+        <div class="content-wrapper">
+            <h1>ROSE<br>DAY</h1>
+            <p>February 7, 2025</p>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('selection').scrollIntoView()">
+            ↓
+        </div>
+    </section>
+    
+    <!-- ═══════════════════════════════════════════════════════════════
+         ROSE SELECTION SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section selection-section" id="selection">
+        <div class="content-wrapper">
+            <h2 class="section-title">Choose a Rose for Me</h2>
+            
+            <div class="roses-grid">
+                <div class="rose-card" data-rose="red" data-emoji="🌹" data-meaning="True Love">
+                    <span class="rose-emoji">🌹</span>
+                    <div class="rose-name">Red Rose</div>
+                    <div class="rose-meaning">True Love</div>
+                </div>
+                
+                <div class="rose-card" data-rose="pink" data-emoji="🌸" data-meaning="Admiration">
+                    <span class="rose-emoji">🌸</span>
+                    <div class="rose-name">Pink Rose</div>
+                    <div class="rose-meaning">Admiration</div>
+                </div>
+                
+                <div class="rose-card" data-rose="white" data-emoji="💐" data-meaning="Pure Love">
+                    <span class="rose-emoji">💐</span>
+                    <div class="rose-name">White Rose</div>
+                    <div class="rose-meaning">Pure Love</div>
+                </div>
+                
+                <div class="rose-card" data-rose="yellow" data-emoji="🌼" data-meaning="Friendship">
+                    <span class="rose-emoji">🌼</span>
+                    <div class="rose-name">Yellow Rose</div>
+                    <div class="rose-meaning">Friendship</div>
+                </div>
+            </div>
+            
+            <button class="submit-btn" id="submitBtn" disabled>
+                Send Your Rose 🌹
+            </button>
+        </div>
+    </section>
+    
+    <!-- ═══════════════════════════════════════════════════════════════
+         REVEAL SECTION (Your Photo & Message)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section reveal-section" id="reveal">
+        <div class="reveal-content">
+            <h2 class="reveal-title">Thank You! 💕</h2>
+            
+            <div class="rose-display" id="roseDisplay"></div>
+            
+            <img 
+                src="roseday1.jpeg" 
+                alt="With roses" 
+                class="reveal-image"
+            />
+            <!-- ↑ CHANGE IMAGE FILENAME HERE ↑ -->
+            
+            <p class="rose-meaning-text" id="meaningText"></p>
+            
+            <p class="reveal-message">
+                Every rose tells a story, and today you've added a beautiful chapter to ours. 
+                Thank you for making this Rose Day unforgettable. Your choice speaks volumes, 
+                and I'm so grateful to share this special day with you.
+                <br><br>
+                Happy Rose Day! 🌹💕
+            </p>
+            <!-- ↑ CUSTOMIZE YOUR MESSAGE ABOVE ↑ -->
+        </div>
+    </section>
+    
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // ROSE SELECTION
+        // ═══════════════════════════════════════════════════════════════
+        let selectedRose = null;
+        const roseCards = document.querySelectorAll('.rose-card');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        roseCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove previous selection
+                roseCards.forEach(c => c.classList.remove('selected'));
+                
+                // Select current
+                card.classList.add('selected');
+                
+                // Store selection
+                selectedRose = {
+                    color: card.dataset.rose,
+                    emoji: card.dataset.emoji,
+                    meaning: card.dataset.meaning
+                };
+                
+                // Enable button
+                submitBtn.disabled = false;
+            });
+        });
+        
+        // ═══════════════════════════════════════════════════════════════
+        // SUBMIT & REVEAL
+        // ═══════════════════════════════════════════════════════════════
+        submitBtn.addEventListener('click', () => {
+            if (!selectedRose) return;
+            
+            // Hide hero and selection
+            document.getElementById('hero').style.display = 'none';
+            document.getElementById('selection').style.display = 'none';
+            
+            // Show reveal section
+            const revealSection = document.getElementById('reveal');
+            revealSection.classList.add('active');
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Update content
+            document.getElementById('roseDisplay').textContent = selectedRose.emoji.repeat(5);
+            document.getElementById('meaningText').textContent = 
+                `You chose ${selectedRose.color.charAt(0).toUpperCase() + selectedRose.color.slice(1)} Rose - Symbol of ${selectedRose.meaning}`;
+            
+            // Effects
+            createPetals();
+            sendEmail();
+        });
+        
+        // ═══════════════════════════════════════════════════════════════
+        // FLOATING PETALS EFFECT
+        // ═══════════════════════════════════════════════════════════════
+        function createPetals() {
+            const petals = ['🌹', '🌸', '🌺', '💐'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const petal = document.createElement('div');
+                    petal.className = 'petal';
+                    petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+                    petal.style.left = Math.random() * 100 + 'vw';
+                    petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    
+                    document.body.appendChild(petal);
+                    
+                    setTimeout(() => petal.remove(), 8000);
+                }, i * 200);
+            }
+        }
+        
+        // ═══════════════════════════════════════════════════════════════
+        // EMAIL NOTIFICATION
+        // ═══════════════════════════════════════════════════════════════
+        async function sendEmail() {
+            const YOUR_EMAIL = 'ajaychavan_in@outlook.com';
+            const ACCESS_KEY = '1cb04b7e-b18d-4f18-8249-40c248681b7d';
+            
+            try {
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: ACCESS_KEY,
+                        subject: `🌹 Rose Day - She chose ${selectedRose.color} Rose!`,
+                        from_name: 'Rose Day Website',
+                        message: `She selected a rose!\n\n🌹 Rose: ${selectedRose.color}\n💕 Meaning: ${selectedRose.meaning}\n🕐 Time: ${new Date().toLocaleString()}`,
+                        to: YOUR_EMAIL
+                    })
+                });
+                console.log('✅ Notification sent!');
+            } catch (error) {
+                console.error('❌ Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
