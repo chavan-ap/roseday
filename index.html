@@ -52,6 +52,10 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Cormorant Garamond', serif;
             min-height: 100vh;
@@ -366,6 +370,8 @@
             border-radius: 30px;
             box-shadow: 0 40px 100px rgba(139, 0, 0, 0.4);
             max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
             animation: celebrateScale 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: 3px solid var(--gold);
             position: relative;
@@ -391,8 +397,9 @@
         }
         
         .celebration-image {
-            width: 100%;
-            max-width: 500px;
+            width: auto;
+            max-width: 100%;
+            max-height: 600px;
             height: auto;
             object-fit: contain;
             border-radius: 20px;
@@ -630,6 +637,11 @@
             document.getElementById('selectedRoseDisplay').textContent = selectedRose.emoji.repeat(5);
             document.getElementById('roseMeaning').textContent = 
                 `You chose the ${selectedRose.color} Rose - Symbol of ${selectedRose.meaning}! 🌹`;
+            
+            // Smooth scroll to top of celebration screen
+            setTimeout(() => {
+                celebrationScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
             
             // Trigger effects
             launchRosePetals();
